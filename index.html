@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News - Plataforma de Verificación Colectiva</title>
+    <!-- Tipografía Inter desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-icon">📰🔍</span>
+            <h1>FAKE <span class="text-accent">NEWS</span></h1>
+        </div>
+        <nav class="main-nav">
+            <a href="#categories">Categorías</a>
+            <a href="#trends">Tendencias</a>
+        </nav>
+        <div class="auth-buttons">
+            <button class="btn btn-secondary btn-login">Iniciar Sesión / Registrarse</button>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL (SPLIT SCREEN LAYOUT MODIFICADO) -->
+    <div class="app-container">
+        
+        <!-- PANEL IZQUIERDO: HERO, VALIDATOR MOTOR & CATEGORÍAS -->
+        <main class="main-content">
+            <section class="hero-validator">
+                <div class="hero-text">
+                    <h2>Detén la posverdad.<br><span class="text-gradient">Verifica al instante.</span></h2>
+                    <p>Pega un enlace. Obtén la verdad de nuestros expertos y algoritmos de IA. Navega por el entorno mediático con total seguridad.</p>
+                </div>
+
+                <!-- Input de Validación Principal -->
+                <div class="validator-box">
+                    <div class="input-wrapper">
+                        <input type="url" id="validator-input" placeholder="Pega el enlace de la noticia aquí..." required>
+                        <button id="btn-verify" class="btn btn-primary">Verificar</button>
+                    </div>
+                    <p class="validator-hint">Validado mediante algoritmos avanzados de IA e investigadores de fuentes originales.</p>
+                </div>
+
+                <!-- NUEVA SECCIÓN: CATEGORÍAS DE NOTICIAS -->
+                <section id="categories" class="categories-section">
+                    <h3>Explorar por Categorías</h3>
+                    <div class="categories-grid">
+                        <button class="category-chip active">🔥 Todo</button>
+                        <button class="category-chip">🧬 Ciencia y Salud</button>
+                        <button class="category-chip">🏛️ Política</button>
+                        <button class="category-chip">💻 Tecnología</button>
+                        <button class="category-chip">🌍 Internacional</button>
+                        <button class="category-chip">⚽ Deportes</button>
+                    </div>
+                </section>
+
+                <!-- Contenedor de Resultados Dinámicos (Oculto por defecto) -->
+                <div id="result-container" class="result-container hidden">
+                    <!-- JS inyectará el resultado aquí -->
+                </div>
+            </section>
+        </main>
+
+        <!-- PANEL DERECHO: FEED DE TENDENCIAS SEPARADO (FALSAS VS REALES) -->
+        <aside id="trends" class="sidebar-trends">
+            
+            <!-- Columna Noticias Falsas -->
+            <div class="trends-column fake-column">
+                <h2 class="sidebar-title title-fake">❌ Desmentidas / Falsas</h2>
+                <div class="news-feed">
+                    <!-- Tarjeta Noticia Falsa 1 -->
+                    <article class="news-card card-fake" data-id="1">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=300&q=80" alt="Noticia Alimentos" class="news-thumb">
+                        <div class="news-content">
+                            <h3>¿Un nuevo 'Superalimento' previene todas las enfermedades?</h3>
+                            <p>Aparecen reportes masivos sobre un supuesto descubrimiento científico revolucionario...</p>
+                            <div class="news-actions">
+                                <button class="action-btn like-btn">👍 <span class="count">142</span></button>
+                                <button class="action-btn dislike-btn active-dislike">👎 <span class="count">312</span></button>
+                                <button class="action-btn comment-btn">💬 <span class="count">45</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Columna Noticias Reales -->
+            <div class="trends-column real-column">
+                <h2 class="sidebar-title title-real">✅ Verificadas / Reales</h2>
+                <div class="news-feed">
+                    <!-- Tarjeta Noticia Real 1 -->
+                    <article class="news-card card-real" data-id="2">
+                        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=300&q=80" alt="Tráfico Ciudad" class="news-thumb">
+                        <div class="news-content">
+                            <h3>Cambios masivos en el transporte público de la ciudad</h3>
+                            <p>Usuarios reportan cierres definitivos en las arterias principales desde mañana.</p>
+                            <div class="news-actions">
+                                <button class="action-btn like-btn active-like">👍 <span class="count">289</span></button>
+                                <button class="action-btn dislike-btn">👎 <span class="count">14</span></button>
+                                <button class="action-btn comment-btn">💬 <span class="count">112</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- MODAL DE REGISTRO -->
+    <div id="register-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <button class="close-modal">&times;</button>
+            <h3>Únete a la Red de Verificación</h3>
+            <p>Necesitas tener una cuenta para poder comentar, reportar y debatir sobre las tendencias del día.</p>
+            <form id="mock-register-form">
+                <input type="text" placeholder="Nombre de usuario" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit" class="btn btn-primary btn-block">Crear Cuenta Gratis</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
