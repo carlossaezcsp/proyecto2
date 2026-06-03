@@ -7,7 +7,7 @@
     <!-- Tipografía Inter desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,15 +27,15 @@
         </div>
     </header>
 
-    <!-- CONTAINER PRINCIPAL (SPLIT SCREEN LAYOUT MODIFICADO) -->
+    <!-- CONTAINER PRINCIPAL -->
     <div class="app-container">
         
-        <!-- PANEL IZQUIERDO: HERO, VALIDATOR MOTOR & CATEGORÍAS -->
+        <!-- PANEL IZQUIERDO: HERO MODIFICADO, VALIDATOR MOTOR & CATEGORÍAS -->
         <main class="main-content">
             <section class="hero-validator">
                 <div class="hero-text">
-                    <h2>Detén la posverdad.<br><span class="text-gradient">Verifica al instante.</span></h2>
-                    <p>Pega un enlace. Obtén la verdad de nuestros expertos y algoritmos de IA. Navega por el entorno mediático con total seguridad.</p>
+                    <h2>Verifica una noticia</h2>
+                    <p>Pega un enlace y verificaremos si proviene de una fuente confiable.</p>
                 </div>
 
                 <!-- Input de Validación Principal -->
@@ -47,7 +47,7 @@
                     <p class="validator-hint">Validado mediante algoritmos avanzados de IA e investigadores de fuentes originales.</p>
                 </div>
 
-                <!-- NUEVA SECCIÓN: CATEGORÍAS DE NOTICIAS -->
+                <!-- SECCIÓN: CATEGORÍAS DE NOTICIAS -->
                 <section id="categories" class="categories-section">
                     <h3>Explorar por Categorías</h3>
                     <div class="categories-grid">
@@ -55,7 +55,7 @@
                         <button class="category-chip">🧬 Ciencia y Salud</button>
                         <button class="category-chip">🏛️ Política</button>
                         <button class="category-chip">💻 Tecnología</button>
-                        <button class="category-chip">🌍 Internacional</button>
+                        <button class="color-chip category-chip">🌍 Internacional</button>
                         <button class="category-chip">⚽ Deportes</button>
                     </div>
                 </section>
@@ -67,19 +67,20 @@
             </section>
         </main>
 
-        <!-- PANEL DERECHO: FEED DE TENDENCIAS SEPARADO (FALSAS VS REALES) -->
+        <!-- PANEL DERECHO: COLUMNAS DE NOTICIAS POPULARES -->
         <aside id="trends" class="sidebar-trends">
             
-            <!-- Columna Noticias Falsas -->
+            <!-- COLUMNA NOTICIAS FALSAS (DESMENTIDAS) -->
             <div class="trends-column fake-column">
                 <h2 class="sidebar-title title-fake">❌ Desmentidas / Falsas</h2>
                 <div class="news-feed">
-                    <!-- Tarjeta Noticia Falsa 1 -->
+                    
+                    <!-- Tarjeta Falsa 1 -->
                     <article class="news-card card-fake" data-id="1">
                         <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=300&q=80" alt="Noticia Alimentos" class="news-thumb">
                         <div class="news-content">
                             <h3>¿Un nuevo 'Superalimento' previene todas las enfermedades?</h3>
-                            <p>Aparecen reportes masivos sobre un supuesto descubrimiento científico revolucionario...</p>
+                            <p>Aparecen reportes masivos sobre un supuesto descubrimiento científico revolucionario sin base clínica...</p>
                             <div class="news-actions">
                                 <button class="action-btn like-btn">👍 <span class="count">142</span></button>
                                 <button class="action-btn dislike-btn active-dislike">👎 <span class="count">312</span></button>
@@ -87,19 +88,49 @@
                             </div>
                         </div>
                     </article>
+
+                    <!-- Tarjeta Falsa 2 -->
+                    <article class="news-card card-fake" data-id="3">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=300&q=80" alt="Ciberseguridad" class="news-thumb">
+                        <div class="news-content">
+                            <h3>Alerta por caída definitiva de mensajería instantánea</h3>
+                            <p>Cadenas de texto afirman que el servicio pasará a ser de pago obligatorio a partir del próximo lunes...</p>
+                            <div class="news-actions">
+                                <button class="action-btn like-btn">👍 <span class="count">64</span></button>
+                                <button class="action-btn dislike-btn active-dislike">👎 <span class="count">512</span></button>
+                                <button class="action-btn comment-btn">💬 <span class="count">89</span></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta Falsa 3 -->
+                    <article class="news-card card-fake" data-id="5">
+                        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=300&q=80" alt="Espacio ficticio" class="news-thumb">
+                        <div class="news-content">
+                            <h3>Fotografía viral revela una 'base secreta' en la Luna</h3>
+                            <p>La imagen compartida miles de veces en redes sociales corresponde en realidad a un fallo de lente óptico...</p>
+                            <div class="news-actions">
+                                <button class="action-btn like-btn">👍 <span class="count">18</span></button>
+                                <button class="action-btn dislike-btn active-dislike">👎 <span class="count">245</span></button>
+                                <button class="action-btn comment-btn">💬 <span class="count">31</span></button>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
 
-            <!-- Columna Noticias Reales -->
+            <!-- COLUMNA NOTICIAS REALES (VERIFICADAS) -->
             <div class="trends-column real-column">
                 <h2 class="sidebar-title title-real">✅ Verificadas / Reales</h2>
                 <div class="news-feed">
-                    <!-- Tarjeta Noticia Real 1 -->
+                    
+                    <!-- Tarjeta Real 1 -->
                     <article class="news-card card-real" data-id="2">
                         <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=300&q=80" alt="Tráfico Ciudad" class="news-thumb">
                         <div class="news-content">
                             <h3>Cambios masivos en el transporte público de la ciudad</h3>
-                            <p>Usuarios reportan cierres definitivos en las arterias principales desde mañana.</p>
+                            <p>El Ministerio de Obras Públicas oficializó las rutas de contingencia y desvíos por reparaciones estructurales.</p>
                             <div class="news-actions">
                                 <button class="action-btn like-btn active-like">👍 <span class="count">289</span></button>
                                 <button class="action-btn dislike-btn">👎 <span class="count">14</span></button>
@@ -107,6 +138,35 @@
                             </div>
                         </div>
                     </article>
+
+                    <!-- Tarjeta Real 2 -->
+                    <article class="news-card card-real" data-id="4">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?auto=format&fit=crop&w=300&q=80" alt="Laboratorio científico" class="news-thumb">
+                        <div class="news-content">
+                            <h3>Nueva terapia genética contra el avance del Alzheimer</h3>
+                            <p>Ensayos clínicos de fase II publicados en la revista Nature arrojan resultados positivos en la memoria a corto plazo.</p>
+                            <div class="news-actions">
+                                <button class="action-btn like-btn active-like">👍 <span class="count">412</span></button>
+                                <button class="action-btn dislike-btn">👎 <span class="count">5</span></button>
+                                <button class="action-btn comment-btn">💬 <span class="count">74</span></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta Real 3 -->
+                    <article class="news-card card-real" data-id="6">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=300&q=80" alt="Satélite satelital" class="news-thumb">
+                        <div class="news-content">
+                            <h3>Lanzamiento exitoso del nuevo satélite meteorológico</h3>
+                            <p>La agencia espacial confirmó el despliegue de paneles solares y las primeras conexiones de telemetría estables.</p>
+                            <div class="news-actions">
+                                <button class="action-btn like-btn active-like">👍 <span class="count">195</span></button>
+                                <button class="action-btn dislike-btn">👎 <span class="count">2</span></button>
+                                <button class="action-btn comment-btn">💬 <span class="count">29</span></button>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
 
